@@ -1,0 +1,89 @@
+{% extends 'layouts/default.html' %}
+
+{% block content %}
+<!-- Banner -->
+<section class="banner">
+	<div class="banner_container">
+		<img src="{{ link_asset('images/banner/banner.jpeg') }}" alt="Banner Image" class="banner_image" />
+		<div class="banner_overlay">
+			<div class="banner_text_container">
+				<span class="banner_title">World Blood Donor Day</span>
+			</div>
+			<div class="banner_button_container">
+				<a href="/" class="banner_button">Learn more</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Banner -->
+
+<!-- Main Content -->
+<section class="content-section-1">
+	<div>
+		<div class="content-heading-1">
+			<h2>
+				Latest news from WHO
+			</h2>
+			<a href="https://www.who.int/news-room/releases" role="link">All →</a>
+		</div>
+		<div class="card-section">
+			{% set latestNews = listData.getResources() %}
+			{% for new in latestNews|slice(0,1) %}
+			{% include 'components/resources_card_1.html' with { resource: new } %}
+			{% endfor %}
+
+				{% include 'components/list_card_1.html' with { resources: listData.getResources()} %}
+
+			</div>
+
+
+	</div>
+	<div>
+		<div class="content-heading-1">
+			<h2>
+				Latest on emergencies
+			</h2>
+			<a href="https://www.who.int/news-room/releases" role="link">All →</a>
+		</div>
+
+		<div class="card-section-1">
+
+			{% include 'components/list_card_2.html' with { resources: listData.getResources()} %}
+
+		</div>
+	</div>
+
+
+	<div class="card-section-2">
+		<div>
+			<div class="content-heading-1">
+				<h2>
+					Campaigns
+				</h2>
+				<a href="https://www.who.int/news-room/releases" role="link">All →</a>
+			</div>
+
+				{% for news in latestNews|slice(0,2) %}
+
+				{% include 'components/resources_card_1.html' with { resource: news } %}
+
+				{% endfor %}
+
+		</div>
+
+		<div>
+			<div class="content-heading-1">
+				<h2>
+					Events
+				</h2>
+				<a href="https://www.who.int/news-room/releases" role="link">All →</a>
+			</div>
+
+				{% include 'components/list_card_3.html' with { resources: listData.getResources()} %}
+
+		</div>
+	</div>
+</section>
+<!-- End Main Content -->
+{% endblock %}
+
