@@ -1,0 +1,89 @@
+.card{
+
+  &-section{
+    @apply grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-10 mt-4 max-w-8xl mx-auto;
+
+    &-1{
+      @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 max-w-8xl gap-4 mt-4;
+    }
+
+    &-2{
+      @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 max-w-8xl gap-10;
+    }
+  }
+
+  &-position{
+
+    &-right{
+      @apply grid grid-cols-1 gap-10 mt-4;
+    }
+
+    &-left{
+      @apply flex flex-col my-auto mt-4;
+    }
+  }
+
+  &-container{
+    @apply bg-quaternary max-h-192;
+
+    &-1{
+      @apply bg-quaternary flex h-36 overflow-hidden;
+
+      a{
+       @apply flex gap-4;
+      }
+    }
+
+    &-2{
+      @apply bg-quaternary md:flex h-36 overflow-hidden;
+
+      a{
+        @apply flex gap-4;
+      }
+    }
+  }
+
+  &-image{
+    @apply shrink-0 object-cover hidden md:block md:w-[200px] overflow-hidden;
+    img{
+      @apply w-full h-full object-cover shrink-0;
+    }
+
+    &-1{
+      @apply shrink-0 w-full h-72 object-cover overflow-hidden;
+      img{
+        @apply w-full h-full object-cover shrink-0;
+      }
+    }
+
+    &-2{
+      @apply shrink-0 w-full h-96 object-cover overflow-hidden;
+      img{
+        @apply w-full h-full object-cover shrink-0;
+      }
+    }
+  }
+
+  &-info{
+    @apply mt-4 mx-2 p-6;
+    &-1{
+      @apply my-2 mx-6;
+    }
+    &-2{
+      @apply my-4 mx-6;
+    }
+  }
+
+
+  &-date{
+    @apply flex gap-2 my-2;
+
+    span{
+      @apply font-extralight text-sm text-primary;
+    }
+  }
+
+  &-heading {
+      @apply text-lg text-primary font-semibold line-clamp-2;
+  }
+}

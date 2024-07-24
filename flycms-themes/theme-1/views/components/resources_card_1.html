@@ -1,0 +1,24 @@
+{% if resource %}
+
+{% set thumbnailFile = resource.getThumbnailFile() %}
+<div class="card-position-right gap-4">
+<div class="card-container">
+	<a>
+		<div class="card-image-2">
+			<img src="{{ image_url( thumbnailFile ) }}">
+		</div>
+		<div class="card-info">
+			<div class="card-date">
+				<span>10 March 2022</span>
+				<span>|</span>
+				<span>Statement</span>
+			</div>
+			<a href="{{resource.getLink()}}">
+				<p class="card-heading">{{resource.getTitle()}}</p>
+			</a>
+		</div>
+
+	</a>
+</div>
+</div>
+{% endif %}

@@ -1,0 +1,9 @@
+{% if resources %}
+<div class="card-position-left gap-4">
+
+	{% for resource in resources|slice(2,7) %}
+	{% include 'components/resources_card_3.html' with { resource: resource } %}
+	{% endfor %}
+
+</div>
+{% endif %}

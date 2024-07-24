@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ pageTitle }}</title>
+	<link href="{{ link_asset('css/style.min.css') }}?t={{ time() }}" rel="stylesheet" type="text/css"/>
+	<script src="{{ link_asset('js/main.js') }}?t={{ time() }}"></script>
+	{% include 'components/common_css.html' %}
+</head>
+<body>
+
+{% include 'partials/navbar.html' %}
+
+<div>
+	{{ block('content') }}
+</div>
+
+{% include 'partials/footer.html' %}
+
+{% include 'components/common_js.html' %}
+</body>
+</html>

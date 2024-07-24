@@ -1,0 +1,6 @@
+{% if resources %}
+
+{% for resource in resources %}
+{% include 'components/resources_card_1.html' with { resource: resource } %}
+{%endfor%}
+{% endif %}

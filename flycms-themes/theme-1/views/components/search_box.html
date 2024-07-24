@@ -1,0 +1,167 @@
+<!-- Search box	 -->
+<div class="search-container">
+	<div class="search-item-1">
+		<form action="{{ link_search() }}" class="d-flex" role="search">
+			<input class="search-input" id="search" name="{{ website.getMetaValue('search-query-name') ?: 'keywords' }}" placeholder="Search by keyword"
+							type="search">
+		</form>
+	</div>
+	<div class="search-item-2">
+		<input class="search-input" placeholder="Heal topics" type="search">
+	</div>
+	<div class="search-item-2 z-30">
+		<div class="search-box-dropdown-wrapper">
+			<div class="search-box-dropdown-container">
+				<button class="search-box-dropdown-toggle" data-collapse-toggle="news-type">
+					<a class="search-box-dropdown-placeholder">
+						News type
+					</a>
+					<span>
+                <svg aria-hidden="true" class="navbar_menu_icon" fill="currentColor" viewBox="0 0 20 20">
+						<path clip-rule="evenodd"
+										d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+										fill-rule="evenodd"/>
+					</svg>
+            </span>
+				</button>
+
+				<div class="hidden flex search-box-dropdown-menu" id="news-type">
+
+					<a class="search-box-dropdown-item" data-value="Campaigns">
+						Campaigns
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="Statements">
+						Statements
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="Events">
+						Events
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="Future stories">
+						Future stories
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="Press conferences">
+						Press conferences
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="Speeches">
+						Speeches
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="Commentaries">
+						Commentaries
+					</a>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<input class="search-input" placeholder="Countries/Areas" type="search">
+	</div>
+	<div class="z-20">
+		<div class="search-box-dropdown-wrapper">
+
+			<div class="search-box-dropdown-container">
+
+				<button class="search-box-dropdown-toggle" data-collapse-toggle="year">
+					<a class="search-box-dropdown-placeholder">
+						Year
+					</a>
+					<span>
+                <svg aria-hidden="true" class="navbar_menu_icon" fill="currentColor" viewBox="0 0 20 20">
+						<path clip-rule="evenodd"
+										d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+										fill-rule="evenodd"/>
+					</svg>
+            </span>
+				</button>
+
+				<div class="hidden flex search-box-dropdown-menu" id="year">
+
+					<a class="search-box-dropdown-item" data-value="2022" role="option">
+						<span>2022</span>
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="2021" role="option">
+						2021
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="2020" role="option">
+						2020
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="2019" role="option">
+						2019
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="2018" role="option">
+						2018
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="2017" role="option">
+						2017
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="2016" role="option">
+						2016
+					</a>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="search-item-2 z-10">
+		<div class="search-box-dropdown-wrapper">
+			<div class="search-box-dropdown-container">
+				<button class="search-box-dropdown-toggle" data-collapse-toggle="publishing-office">
+					<a class="search-box-dropdown-placeholder">
+						Publishing office
+					</a>
+					<span>
+                <svg aria-hidden="true" class="navbar_menu_icon" fill="currentColor" viewBox="0 0 20 20">
+						<path clip-rule="evenodd"
+										d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+										fill-rule="evenodd"/>
+					</svg>
+            </span>
+				</button>
+
+				<div class="hidden flex search-box-dropdown-menu" id="publishing-office">
+
+					<a class="search-box-dropdown-item" data-value="National Office for the Western Pacific">
+						National Office for the Western Pacific
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="Regional Office for Africa">
+						Regional Office for Africa
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="Regional Office for the Americas">
+						Regional Office for the Americas
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="Regional Office for the Eastern Mediterranean">
+						Regional Office for the Eastern Mediterranean
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="Regional Office for Europe">
+						Regional Office for Europe
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="Regional Office for South-East Asia">
+						Regional Office for South-East Asia
+					</a>
+
+					<a class="search-box-dropdown-item" data-value="Regional Office for the Western Pacific">
+						Regional Office for the Western Pacific
+					</a>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!-- End Search box	 -->

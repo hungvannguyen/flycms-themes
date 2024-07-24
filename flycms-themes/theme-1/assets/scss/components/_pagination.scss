@@ -1,0 +1,27 @@
+.pagination-container {
+  @apply flex flex-col sm:flex-row justify-center sm:justify-between mx-auto mt-8 border border-black p-6 gap-4;
+}
+
+.pagination-navigation {
+  @apply flex justify-center gap-6 my-auto;
+}
+
+.pagination-button {
+  @apply flex items-center justify-center;
+}
+
+.pagination-icon {
+  @apply w-6 h-6;
+}
+
+.pagination-input {
+  @apply flex gap-4 text-black;
+}
+
+.page-input {
+  @apply border-b border-t-0 border-l-0 border-r-0 h-8 w-16;
+}
+
+.pagination-info {
+  @apply my-auto text-black hidden sm:block;
+}

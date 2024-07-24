@@ -1,0 +1,7 @@
+body {
+  @apply font-sans text-white relative px-2 md:px-0
+}
+
+input {
+  @apply w-full border border-gray-300 rounded px-4 py-3;
+}

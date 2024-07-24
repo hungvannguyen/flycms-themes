@@ -1,0 +1,208 @@
+.navbar {
+    @apply bg-primary text-white relative z-40;
+}
+
+.navbar_container {
+  @apply mx-auto flex items-center max-w-8xl justify-between px-6 py-6 lg:py-0 lg:px-8;
+}
+
+.navbar_logo {
+  @apply flex items-center gap-2;
+}
+
+.navbar_logo_link {
+  @apply -m-1.5 p-1.5;
+}
+
+.navbar_logo_image {
+  @apply h-10 w-auto;
+}
+
+.navbar_menu {
+  @apply hidden lg:flex  lg:gap-x-6  xl:gap-x-12;
+}
+
+.navbar_menu_item {
+  @apply flex items-center py-6 gap-x-1 text-sm font-semibold leading-6 text-white;
+}
+
+.navbar_menu_button {
+  @apply flex items-center gap-x-1;
+}
+
+.navbar_menu_icon {
+  @apply h-5 w-5 flex-none text-gray-400;
+}
+
+.navbar_dropdown {
+  @apply absolute px-6 left-0 top-full z-10 w-full overflow-hidden bg-secondary shadow-lg ring-1 ring-gray-900/5;
+
+  &_1{
+    @apply absolute right-10 top-20 lg:right-36 lg:top-full z-10 w-44 overflow-hidden bg-secondary shadow-lg ring-1 ring-gray-900/5;
+  }
+}
+
+.navbar_dropdown_search{
+  @apply absolute top-44 lg:right-80 lg:top-[70px] z-50 w-full lg:w-96 overflow-hidden bg-secondary shadow-lg;
+  input{
+    @apply bg-secondary text-white p-4;
+  }
+}
+
+.navbar_dropdown_grid {
+  @apply grid grid-cols-4 gap-2 px-28;
+
+}
+
+.navbar_dropdown_section {
+  @apply text-white space-y-6 py-6 px-8 border-l last:border-r;
+}
+
+.navbar_dropdown_section_2 {
+  @apply col-span-2 text-white space-y-6 py-6 px-14 border-l;
+}
+
+.navbar_dropdown_heading {
+  @apply font-bold text-2xl;
+}
+
+.navbar_dropdown_list {
+
+  &_wrap{
+    @apply flex flex-wrap gap-4 font-semibold
+  }
+
+  &_col{
+    @apply flex flex-col gap-4 font-semibold
+  }
+}
+
+.navbar_end {
+  @apply hidden mx-2 justify-end lg:justify-center gap-2 lg:flex;
+}
+
+.navbar_search_icon {
+  @apply size-6;
+}
+
+.navbar_separator {
+  @apply my-auto;
+}
+
+.navbar_language_icon {
+  @apply size-6 my-auto;
+}
+
+
+.navbar_language {
+  @apply relative cursor-pointer;
+}
+
+.navbar_language_button {
+  @apply flex items-center justify-evenly;
+}
+
+.navbar_language_link {
+  @apply my-2 py-2 text-base font-medium lg:mx-4;
+}
+
+.navbar_language_dropdown {
+  @apply invisible absolute z-50 flex w-full flex-col bg-gray-100 py-1 px-4 text-gray-800 shadow-xl group-hover:visible;
+}
+
+.navbar_language_item {
+  @apply my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2;
+}
+
+
+.info{
+  @apply space-y-2;
+}
+
+.heading{
+  @apply text-lg font-bold;
+}
+
+.date{
+  @apply text-sm font-extralight;
+}
+
+.language_item{
+  @apply block px-4 py-2 text-sm;
+
+  &:hover{
+    @apply bg-quaternary text-primary;
+  }
+}
+
+.navbar_mobile_container{
+  @apply fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-primary py-6 px-2 sm:ring-1 sm:ring-gray-900/10;
+}
+
+.navbar_mobile_header {
+  @apply flex items-center justify-between px-6 py-6;
+}
+
+.navbar_mobile_body {
+  @apply mt-6 flow-root justify-center py-6 relative;
+
+  &_container{
+    @apply -mx-3 px-4;
+  }
+  &_first{
+    @apply flex justify-between px-6 pt-2;
+  }
+}
+
+.navbar_mobile_menu {
+  @apply flex lg:hidden;
+}
+
+.navbar_mobile_button {
+  @apply -m-2.5 inline-flex items-center justify-center rounded-md p-2.5;
+}
+
+.navbar_mobile_icon {
+  @apply h-6 w-6;
+}
+
+.navbar_menu_mb {
+  @apply gap-y-4;
+}
+
+.navbar_mobile_list{
+  &_wrap{
+    @apply border-t py-4 last:border-b;
+  }
+}
+
+.navbar_mobile_list_1{
+  @apply space-y-4 mt-2 outline-1;
+}
+.navbar_mobile_list_2{
+  @apply gap-8 mx-auto px-12 py-4 flex flex-wrap;
+}
+
+.navbar_mobile_list_2_1{
+  @apply ml-6 mt-2 space-y-4 px-8;
+}
+
+.navbar_mobile_list_3{
+  @apply flex flex-col space-y-2;
+}
+
+.navbar_mobile_list_item{
+  @apply flex justify-between  px-6;
+
+  span{
+    @apply font-bold;
+  }
+}
+
+.navbar_mobile_list_item_1{
+  @apply flex justify-between my-auto ml-2 px-6;
+
+  span{
+    @apply font-bold;
+  }
+}

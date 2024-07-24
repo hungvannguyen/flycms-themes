@@ -1,0 +1,41 @@
+.post{
+  &-container{
+    @apply grid grid-cols-1 lg:grid-cols-3 gap-8;
+  }
+
+  &-left{
+    @apply col-span-2 text-black;
+    &-content{
+      @apply border-t border-black mt-6 pt-8;
+    }
+  }
+
+  &-right{
+    @apply flex flex-col space-y-2 md:justify-between md:space-y-0 md:gap-2 md:flex-row lg:space-y-6 lg:flex-col lg:justify-normal;
+  }
+}
+
+
+.media-contacts-container{
+  @apply flex gap-6 bg-quaternary p-6 mt-4;
+}
+
+.contact-name{
+  @apply font-bold;
+}
+
+.contact-email{
+  @apply font-bold;
+
+  p{
+    @apply font-light underline;
+  }
+}
+
+.related-container{
+  @apply text-black space-y-2 mt-2;
+}
+
+.related-item{
+  @apply border-b py-2 last:border-b-0;
+}

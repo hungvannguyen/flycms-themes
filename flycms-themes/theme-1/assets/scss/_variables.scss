@@ -1,0 +1,29 @@
+.bg-primary {
+  background-color: #0d2b64;
+}
+
+.bg-primary-80 {
+  background-color: rgba(13,43,100,0.7);
+  outline: 1px solid white;
+}
+
+.bg-secondary {
+  background-color: #274375;
+}
+
+.bg-quaternary {
+  background-color: #e7e5e5;
+}
+
+.max-w-8xl {
+  max-width: 88rem;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.max-h-192 {
+  max-height: 48rem;
+}
