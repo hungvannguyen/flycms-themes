@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
         previousMenuId = menuId;
 
     };
+
     const handleMouseOver = (button, event) => {
         const menuId = button.getAttribute('data-collapse-toggle');
         const dropdownMenu = document.getElementById(menuId);
