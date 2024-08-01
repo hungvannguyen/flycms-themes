@@ -16,9 +16,9 @@
 
 		<div class="post-left">
 			<p class="pt-3">
-				6 June 2024| {% for websiteTag in model_relation(post, 'websiteTags') %}
+				{{ post.created_at|date("j F Y") }} | {% for websiteTag in model_relation(post, 'websiteTags') %}
 				<a href="{{ link_to(websiteTag) }}">{{ websiteTag.name }}</a>,
-				{% endfor %}|  Reading time:2 min (515 words)
+				{% endfor %}|  View: {{post.views}}
 			</p>
 			<div class="post-left-content">
 				{% for content in model_relation(post, 'contents') %}
@@ -90,4 +90,8 @@
 
 </section>
 <!-- End Main Content -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => window.viewCount('{{ post.slug }}'))
+</script>
 {% endblock %}

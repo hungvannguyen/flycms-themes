@@ -3,11 +3,11 @@
 }
 
 .pagination-navigation {
-  @apply flex justify-center gap-6 my-auto;
+  @apply flex justify-center content-center gap-6;
 }
 
 .pagination-button {
-  @apply flex items-center justify-center;
+  @apply flex items-center justify-center cursor-pointer;
 }
 
 .pagination-icon {
@@ -15,11 +15,15 @@
 }
 
 .pagination-input {
-  @apply flex gap-4 text-black;
+  @apply flex justify-center content-center gap-4 text-primary;
+}
+
+.pagination-item {
+  @apply rounded-full border w-6 h-6 p-4 flex items-center justify-center cursor-pointer font-medium text-primary;
 }
 
 .page-input {
-  @apply border-b border-t-0 border-l-0 border-r-0 h-8 w-16;
+  @apply h-6 w-14;
 }
 
 .pagination-info {
