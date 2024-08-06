@@ -16,9 +16,9 @@
 
 		<div class="post-left">
 			<p class="pt-3">
-				{{ post.created_at|date("j F Y") }} | {% for websiteTag in model_relation(post, 'websiteTags') %}
-				<a href="{{ link_to(websiteTag) }}">{{ websiteTag.name }}</a>,
-				{% endfor %}|  View: {{post.views}}
+				{{ post.created_at | date("j F Y") }} | {% for websiteTag in model_relation(post, 'websiteTags') %}
+				<a href="{{ link_to(websiteTag) }}">{{ websiteTag.name }}</a>
+				{% endfor %} | View: {{post.views}}
 			</p>
 			<div class="post-left-content">
 				{% for content in model_relation(post, 'contents') %}
@@ -62,31 +62,33 @@
 					</h2>
 				</div>
 				<div class="related-container">
+					{% set websiteTag = model_relation(post, 'websiteTags') %}
+					{% set tagArray = [] %}
+					{% for tag in websiteTag %}
+					{% set tagArray = tagArray|merge([tag.id]) %}
+					{% endfor %}
 
+					{%
+					set query = multikey_filter_post_query()
+					.where('visibility', '=', 'public')
+					.setFilterKeys(tagArray)
+					.setFilterKeyMatchingType('all')
+					.sortBy('created_at')
+					.sortDesc()
+					.setLimit(4)
+					%}
+
+					{% set posts = multikey_filter_get_posts(query) %}
+
+					{% for post in posts %}
 					<p class="related-item">
-						<a href="#">WHO Director-Gerenal Special Envoys</a>
+						<a href="{{link_to(post)}}">{{ post.title }}</a>
 					</p>
-					<p class="related-item">
-						<a href="#">
-							WHO's work on chronic respiratory diseases
-						</a>
-					</p>
-					<p class="related-item">
-						<a href="#">
-							WHO's work on chronic respiratory diseases
-						</a>
-					</p>
-					<p class="related-item">
-						<a href="#">
-							WHO's work on chronic respiratory diseases
-						</a>
-					</p>
+					{% endfor %}
 				</div>
 			</div>
 		</div>
-
 	</div>
-
 
 </section>
 <!-- End Main Content -->

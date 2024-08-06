@@ -38,4 +38,8 @@
 
 .related-item{
   @apply border-b py-2 last:border-b-0;
+
+    a{
+        @apply line-clamp-2;
+    }
 }

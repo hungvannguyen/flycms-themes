@@ -11,13 +11,14 @@
 			{{websiteTag.name}}
 		</h2>
 		<span>
-			Browse selected WHO news below.
+			Find {{postsCount}} results
 		</span>
 	</div>
-
+	{% set resources = listData.getResources() %}
+	{% set count = listData.getResourcesCount() %}
 	<div class="card-section-1">
 		{% if postsCount > 0 %}
-		{% include 'components/list_card_4.html' with { resources: listData.getResources(), count: listData.getResourcesCount() } %}
+		{% include 'components/list_card_4.html' with { resources: resources , count: count } %}
 		{% else %}
 		<div class="flex justify-center my-10 col-span-3">
 			<h1 class="text-2xl font-medium text-primary">No result found</h1>
@@ -25,7 +26,7 @@
 		{% endif %}
 	</div>
 
-	{% include 'components/pagination_tailwind.html' with { count: listData.getResourcesCount() } %}
+	{% include 'components/pagination_tailwind.html' with { count: count } %}
 
 </section>
 <!-- End Main Content -->
