@@ -62,29 +62,26 @@
 					</h2>
 				</div>
 				<div class="related-container">
-					{% set websiteTag = model_relation(post, 'websiteTags') %}
-					{% set tagArray = [] %}
-					{% for tag in websiteTag %}
-					{% set tagArray = tagArray|merge([tag.id]) %}
-					{% endfor %}
-
-					{%
-					set query = multikey_filter_post_query()
-					.where('visibility', '=', 'public')
-					.setFilterKeys(tagArray)
-					.setFilterKeyMatchingType('all')
-					.sortBy('created_at')
-					.sortDesc()
-					.setLimit(4)
-					%}
-
-					{% set posts = multikey_filter_get_posts(query) %}
-
-					{% for post in posts %}
-					<p class="related-item">
-						<a href="{{link_to(post)}}">{{ post.title }}</a>
-					</p>
-					{% endfor %}
+					<div x-data="list('/ajax/suggestions/{{ post.slug }}', true, 4)">
+						<div class="posts">
+							<template x-for="post in data">
+								<p class="related-item">
+									<a href="{{link_to(post)}}" x-text="post.title"></a>
+								</p>
+							</template>
+						</div>
+						<div class="text-center mt-3">
+							<div x-show="isLoading" class="flex justify-center">
+								<svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+									<circle class="opacity-25" cx="12" cy="12" r="10" stroke="#003B72" stroke-width="4"></circle>
+									<path class="opacity-75" fill="#003B72"
+													d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+									</path>
+								</svg>
+							</div>
+							<button x-bind="trigger" class="button watch-more">Watch more</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -92,6 +89,7 @@
 
 </section>
 <!-- End Main Content -->
+
 
 <script>
     document.addEventListener('DOMContentLoaded', () => window.viewCount('{{ post.slug }}'))

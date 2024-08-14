@@ -43,7 +43,7 @@
 }
 
 .navbar_dropdown_search{
-  @apply absolute top-44 lg:right-80 lg:top-[70px] z-50 w-full lg:w-96 overflow-hidden bg-secondary shadow-lg;
+  @apply fixed lg:absolute top-44 lg:right-80 lg:top-[70px] z-50 w-full lg:w-96 overflow-hidden bg-secondary shadow-lg;
   input{
     @apply bg-secondary text-white p-4;
   }
@@ -133,6 +133,10 @@
   &:hover{
     @apply bg-quaternary text-primary;
   }
+}
+
+#mobile-menu{
+  @apply lg:hidden;
 }
 
 .navbar_mobile_container{

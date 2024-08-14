@@ -19,20 +19,69 @@
 
 <!-- Main Content -->
 <section class="content-section-1">
+
+	{% set data = website.getMetaValue('home-sections') %}
+	{% set tags = data|split(',') %}
+
+	{% for tag in tags %}
+	{% set parts = tag|split(':') %}
+	{% if parts|length > 1 %}
+	{% set tag_name = parts[0]|trim %}
+	{% set ids = parts[1]|trim|split(' ') %} {# Tách các ID bằng khoảng trắng #}
+	{% set previous_tag_name = tag_name %}
+	{% else %}
+	{% set tag_name = previous_tag_name %}
+	{% set ids = parts[0]|trim|split(' ') %}
+	{% endif %}
+
+	{% for id in ids %}
+	<div>
+		{%
+		set query = multikey_filter_post_query()
+		.setFilterKeys([id])
+		.where('visibility', '=', 'public')
+		.setFilterKeyMatchingType('all')
+		.sortBy('created_at')
+		.sortDesc()
+		.setLimit(24)
+		%}
+
+		{% set cats = multikey_filter_get_posts(query) %}
+
+		{# Kiểm tra và in kết quả của cats #}
+		{% if cats is not empty %}
+		{% include 'components/list-card-tag.html' with { resources: cats, tag_name: tag_name } %}
+		{% endif %}
+	</div>
+	{% endfor %}
+	{% endfor %}
+
+
+
+
 	<div>
 		<div class="content-heading-1">
 			<h2>
 				Latest news from WHO
 			</h2>
-			<a href="https://www.who.int/news-room/releases" role="link">All →</a>
 		</div>
 		<div class="card-section">
-			{% set latestNews = listData.getResources() %}
+			{%
+			set latestNewsQuery = multikey_filter_post_query()
+			.where('visibility', '=', 'public')
+			.setFilterKeys(['01j1cd02bgf7rbgr413v8m94xy'])
+			.sortBy('created_at')
+			.sortDesc()
+			.setLimit(6)
+			%}
+
+			{% set latestNews = multikey_filter_get_posts(latestNewsQuery) %}
+
 			{% for new in latestNews|slice(0,1) %}
 			{% include 'components/resources_card_1.html' with { resource: new } %}
 			{% endfor %}
 
-				{% include 'components/list_card_1.html' with { resources: listData.getResources()} %}
+				{% include 'components/list_card_1.html' with { resources: latestNews} %}
 
 			</div>
 
@@ -43,7 +92,6 @@
 			<h2>
 				Latest on emergencies
 			</h2>
-			<a href="https://www.who.int/news-room/releases" role="link">All →</a>
 		</div>
 
 		<div class="card-section-1">
@@ -60,7 +108,6 @@
 				<h2>
 					Campaigns
 				</h2>
-				<a href="https://www.who.int/news-room/releases" role="link">All →</a>
 			</div>
 
 				{% for news in latestNews|slice(0,2) %}
@@ -76,16 +123,22 @@
 				<h2>
 					Events
 				</h2>
-				<a href="https://www.who.int/news-room/releases" role="link">All →</a>
 			</div>
 
-				{% include 'components/list_card_3.html' with { resources: listData.getResources()} %}
+				{% include 'components/list_card_3.html' with { resources: listData.getResources() } %}
 
 		</div>
 	</div>
 
-
 </section>
 <!-- End Main Content -->
+
+<script type="module">
+	import {fetchPosts} from "{{ link_asset('js/main.js') }}?t={{ time() }}";
+
+
+	// const posts = fetchPosts();
+  //   	console.log(posts);
+</script>
 {% endblock %}
 
