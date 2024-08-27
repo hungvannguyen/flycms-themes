@@ -15,13 +15,13 @@
 		</span>
 	</div>
 
-	{% set resources = listData.getResources() %}
+	{% set resources = posts %}
 	{% set count = listData.getResourcesCount() %}
 
 	{% include 'components/search_box.html' %}
 
 
-	<div class="card-section-1">
+	<div class="card-section-3">
 		{% if postsCount > 0 %}
 
 		{% include 'components/list_card_4.html' with { resources: resources, count: count } %}

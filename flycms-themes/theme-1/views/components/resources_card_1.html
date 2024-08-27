@@ -1,11 +1,12 @@
 {% if resource %}
 
  {% set thumbnailFile = model_relation(resource, 'thumbnailFile')%}
-<div class="card-position-right gap-4">
+<div class="card-position-left">
 <div class="card-container">
 	<a>
 		<div class="card-image-2">
-			<img src="{{ image_url( thumbnailFile ) }}"> 		</div>
+			<img src="{{ image_url( thumbnailFile ) }}">
+		</div>
 		<div class="card-info">
 			<div class="card-date">
 				<span>{{ resource.created_at | date("j F Y") }}</span>
@@ -18,7 +19,6 @@
 				<p class="card-heading">{{resource.title ?? resource.getTitle()}}</p>
 			</a>
 		</div>
-
 	</a>
 </div>
 </div>

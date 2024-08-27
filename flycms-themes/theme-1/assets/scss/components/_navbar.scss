@@ -36,17 +36,30 @@
 
 .navbar_dropdown {
   @apply absolute px-6 left-0 top-full z-10 w-full overflow-hidden bg-secondary shadow-lg ring-1 ring-gray-900/5;
-
-  &_1{
-    @apply absolute right-10 top-20 lg:right-36 lg:top-full z-10 w-44 overflow-hidden bg-secondary shadow-lg ring-1 ring-gray-900/5;
-  }
 }
 
 .navbar_dropdown_search{
-  @apply fixed lg:absolute top-44 lg:right-80 lg:top-[70px] z-50 w-full lg:w-96 overflow-hidden bg-secondary shadow-lg;
+  @apply absolute overflow-hidden bg-secondary shadow-lg z-50 right-12 top-12 w-96;
+
   input{
     @apply bg-secondary text-white p-4;
   }
+}
+
+.navbar_dropdown_search_mb{
+  @apply absolute w-full left-0 overflow-hidden bg-secondary shadow-lg z-50;
+
+  input{
+    @apply bg-secondary text-white p-4;
+  }
+}
+
+.navbar_dropdown_language{
+  @apply absolute z-10 w-44 overflow-hidden bg-secondary shadow-lg ring-1 ring-gray-900/5 right-0 top-12;
+}
+
+.navbar_dropdown_language_mb{
+  @apply absolute right-0 top-10 z-10 w-44 overflow-hidden bg-secondary shadow-lg ring-1 ring-gray-900/5;
 }
 
 .navbar_dropdown_grid {

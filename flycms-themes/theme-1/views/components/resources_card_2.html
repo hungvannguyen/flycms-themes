@@ -2,13 +2,12 @@
 
 {% set thumbnailFile = model_relation(resource, 'thumbnailFile') %}
 
-
-<div class="card-container-2">
+<div class="card-container-1">
 	<a>
 		<div class="card-image">
 			<img src="{{ image_url( thumbnailFile ) }}" >
 		</div>
-		<div class="card-info-1">
+		<div class="card-info-3">
 			<div class="card-date">
 				<span>{{ resource.created_at | date("j F Y") }}</span>
 				<span>|</span>

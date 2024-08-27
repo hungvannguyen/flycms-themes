@@ -8,6 +8,8 @@ module.exports = {
                 'secondary':'#274375',
                 'tertiary':'#2f497a',
                 'quaternary':'#e7e5e5',
+                'quinary':'#5A5A5A',
+                'senary':'#444444',
             },
         },
     },

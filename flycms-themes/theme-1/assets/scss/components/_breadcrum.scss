@@ -1,9 +1,9 @@
 .breadcrumb-container {
-  @apply flex mx-auto max-w-8xl p-6 lg:px-8;
+  @apply flex flex-wrap mx-auto max-w-8xl p-6 lg:px-8;
 }
 
 .breadcrumb-list {
-  @apply inline-flex items-center space-x-1;
+  @apply flex flex-wrap items-center md:space-x-1;
 }
 
 .breadcrumb-item {

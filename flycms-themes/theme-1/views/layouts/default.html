@@ -37,7 +37,9 @@ quality: subject.getMetaValue('quality'),
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ pageTitle }}</title>
 	<link href="{{ link_asset('css/style.min.css') }}?t={{ time() }}" rel="stylesheet" type="text/css"/>
-
+	<style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@100..900&display=swap');
+	</style>
 	{% include 'components/common_css.html' %}
 </head>
 <body>

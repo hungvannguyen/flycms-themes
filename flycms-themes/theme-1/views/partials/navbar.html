@@ -35,7 +35,7 @@
 					</svg>
 				</button>
 				</a>
-				<div x-show="navMenu" @click.outside="navMenu = false" id="health-topics" class="navbar_dropdown" >
+				<div x-show="navMenu" @click.outside="navMenu = false" id="health-topics" class="navbar_dropdown" style="display: none">
 					<div class="navbar_dropdown_grid">
 						{% for subMenuItem in menuItem.items %}
 						<div class="navbar_dropdown_section">
@@ -66,16 +66,25 @@
 				</svg>
 			</button>
 			<span class="navbar_separator"> | </span>
+			<div class="relative">
 			<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="navbar_language_icon">
 				<path fill-rule="evenodd" d="M9 2.25a.75.75 0 0 1 .75.75v1.506a49.384 49.384 0 0 1 5.343.371.75.75 0 1 1-.186 1.489c-.66-.083-1.323-.151-1.99-.206a18.67 18.67 0 0 1-2.97 6.323c.318.384.65.753 1 1.107a.75.75 0 0 1-1.07 1.052A18.902 18.902 0 0 1 9 13.687a18.823 18.823 0 0 1-5.656 4.482.75.75 0 0 1-.688-1.333 17.323 17.323 0 0 0 5.396-4.353A18.72 18.72 0 0 1 5.89 8.598a.75.75 0 0 1 1.388-.568A17.21 17.21 0 0 0 9 11.224a17.168 17.168 0 0 0 2.391-5.165 48.04 48.04 0 0 0-8.298.307.75.75 0 0 1-.186-1.489 49.159 49.159 0 0 1 5.343-.371V3A.75.75 0 0 1 9 2.25ZM15.75 9a.75.75 0 0 1 .68.433l5.25 11.25a.75.75 0 1 1-1.36.634l-1.198-2.567h-6.744l-1.198 2.567a.75.75 0 0 1-1.36-.634l5.25-11.25A.75.75 0 0 1 15.75 9Zm-2.672 8.25h5.344l-2.672-5.726-2.672 5.726Z" clip-rule="evenodd" />
 			</svg>
-			<button type="button" class="navbar_menu_button relative" @click="navLang =! navLang">
+				<!-- 	Search bar -->
+				<div x-show="navSearch" @click.outside="navSearch = false" id="search-modal" class="navbar_dropdown_search z-100" style="display: none">
+					<form action="{{ link_search() }}" class="d-flex" role="search">
+						<input id="search" type="search" placeholder="Search" name="{{ website.getMetaValue('search-query-name') ?: 'keywords' }}">
+					</form>
+				</div>
+			</div>
+			<div class="relative">
+			<button type="button" class="navbar_menu_button" @click="navLang =! navLang">
 				Select language
 				<svg class="navbar_menu_icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 					<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
 				</svg>
 			</button>
-			<div x-show="navLang" @click.outside="navLang = false" id="menu-button" class="navbar_dropdown_1" >
+			<div x-show="navLang" @click.outside="navLang = false" id="menu-button" class="navbar_dropdown_language" style="display: none">
 				<div class="py-1" role="none">
 					<a href="#" class="language_item" role="menuitem" tabindex="-1" id="menu-item-0">English</a>
 					<a href="#" class="language_item" role="menuitem" tabindex="-1" id="menu-item-1">العربية</a>
@@ -85,12 +94,12 @@
 					<a href="#" class="language_item" role="menuitem" tabindex="-1" id="menu-item-6">Español</a>
 				</div>
 			</div>
-
+			</div>
 		</div>
 	</nav>
 
 	<!--  Mobile	 -->
-	<div x-show="navMobile" id="mobile-menu" role="dialog">
+	<div x-show="navMobile" id="mobile-menu" role="dialog" style="display: none">
 
 		<div class="navbar_mobile_container">
 			<div class="navbar_mobile_header">
@@ -110,22 +119,37 @@
 					<ul aria-hidden="false" class="navbar_mobile_list">
 						<li class="navbar_mobile_list_wrap">
 							<div class="navbar_mobile_body_first">
+
+								<div>
 								<button type="button" class="navbar_search_button" @click="navSearch = ! navSearch">
 									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="navbar_search_icon">
 										<path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
 									</svg>
 								</button>
+									<!-- 	Search bar -->
+									<div x-show="navSearch" @click.outside="navSearch = false" id="search-modal" class="navbar_dropdown_search_mb z-100" style="display: none">
+										<form action="{{ link_search() }}" class="d-flex" role="search">
+											<input id="search" type="search" placeholder="Search" name="{{ website.getMetaValue('search-query-name') ?: 'keywords' }}">
+										</form>
+									</div>
+							</div>
+
+
 								<div class="flex gap-4">
+									<div>
 									<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="navbar_language_icon" >
 										<path fill-rule="evenodd" d="M9 2.25a.75.75 0 0 1 .75.75v1.506a49.384 49.384 0 0 1 5.343.371.75.75 0 1 1-.186 1.489c-.66-.083-1.323-.151-1.99-.206a18.67 18.67 0 0 1-2.97 6.323c.318.384.65.753 1 1.107a.75.75 0 0 1-1.07 1.052A18.902 18.902 0 0 1 9 13.687a18.823 18.823 0 0 1-5.656 4.482.75.75 0 0 1-.688-1.333 17.323 17.323 0 0 0 5.396-4.353A18.72 18.72 0 0 1 5.89 8.598a.75.75 0 0 1 1.388-.568A17.21 17.21 0 0 0 9 11.224a17.168 17.168 0 0 0 2.391-5.165 48.04 48.04 0 0 0-8.298.307.75.75 0 0 1-.186-1.489 49.159 49.159 0 0 1 5.343-.371V3A.75.75 0 0 1 9 2.25ZM15.75 9a.75.75 0 0 1 .68.433l5.25 11.25a.75.75 0 1 1-1.36.634l-1.198-2.567h-6.744l-1.198 2.567a.75.75 0 0 1-1.36-.634l5.25-11.25A.75.75 0 0 1 15.75 9Zm-2.672 8.25h5.344l-2.672-5.726-2.672 5.726Z" clip-rule="evenodd" />
 									</svg>
+
+									</div>
+									<div class="relative">
 									<button type="button" class="navbar_menu_button" @click="navLang = ! navLang" >
 										Select language
 										<svg class="navbar_menu_icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 											<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
 										</svg>
 									</button>
-									<div x-show="navLang" @click.outside="navLang = false" id="menu-button-mb" class="navbar_dropdown_1">
+									<div x-show="navLang" @click.outside="navLang = false" id="menu-button-mb" class="navbar_dropdown_language_mb">
 										<div class="py-1" role="none">
 											<a href="#" class="language_item" role="menuitem" tabindex="-1" id="menu-item-mb-0">English</a>
 											<a href="#" class="language_item" role="menuitem" tabindex="-1" id="menu-item-mb-1">العربية</a>
@@ -134,6 +158,7 @@
 											<a href="#" class="language_item" role="menuitem" tabindex="-1" id="menu-item-mb-5">Русский</a>
 											<a href="#" class="language_item" role="menuitem" tabindex="-1" id="menu-item-mb-6">Español</a>
 										</div>
+									</div>
 									</div>
 								</div>
 							</div>
@@ -197,12 +222,6 @@
 
 	</div>
 
-	<!-- 	Search bar -->
-	<div x-show="navSearch" @click.outside="navSearch = false" id="search-modal" class="navbar_dropdown_search z-100">
-		<form action="{{ link_search() }}" class="d-flex" role="search">
-			<input id="search" type="search" placeholder="Search" name="{{ website.getMetaValue('search-query-name') ?: 'keywords' }}">
-		</form>
-	</div>
 
 </header>
 

@@ -1,23 +1,54 @@
 .post{
   &-container{
-    @apply grid grid-cols-1 lg:grid-cols-3 gap-8;
+    @apply grid grid-cols-1 space-y-4 xl:space-y-2 xl:grid-cols-3 xl:gap-8;
   }
 
   &-left{
     @apply col-span-2 text-black;
+
     &-content{
       @apply border-t border-black mt-6 pt-8;
+
+        h1{
+            @apply text-2xl font-bold;
+        }
+
+        h2{
+            @apply text-xl font-bold;
+        }
+
+        h3{
+            @apply text-lg font-bold;
+        }
+
     }
   }
 
   &-right{
-    @apply flex flex-col space-y-2 md:justify-between md:space-y-0 md:gap-2 md:flex-row lg:space-y-6 lg:flex-col lg:justify-normal;
+    @apply flex flex-col space-y-6 sm:space-y-2 md:space-y-0 md:gap-2 md:flex-row md:justify-between xl:space-y-12 xl:flex-col xl:justify-normal;
+  }
+
+  &-information{
+    @apply flex flex-wrap gap-2 items-center;
+
+    span{
+      @apply text-quinary;
+    }
+  }
+
+  &-tag{
+    @apply shrink-0 bg-quaternary px-2 py-1 rounded-md text-primary hover:bg-primary hover:text-quaternary hover:ease-in-out;
   }
 }
 
 
 .media-contacts-container{
-  @apply flex gap-6 bg-quaternary p-6 mt-4;
+  @apply flex gap-6 bg-quaternary px-2 py-4 md:p-6 mt-6;
+}
+
+.media-contacts-avatar{
+    @apply my-auto;
+
 }
 
 .contact-name{
@@ -27,17 +58,17 @@
 .contact-email{
   @apply font-bold;
 
-  p{
-    @apply font-light underline;
+  span{
+    @apply font-light;
   }
 }
 
 .related-container{
-  @apply text-black space-y-2 mt-2;
+  @apply text-black space-y-2 mt-4;
 }
 
 .related-item{
-  @apply border-b py-2 last:border-b-0;
+  @apply border-b border-quinary py-2 last:border-b-0;
 
     a{
         @apply line-clamp-2;

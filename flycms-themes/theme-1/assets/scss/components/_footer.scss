@@ -1,13 +1,17 @@
 .footer-container{
-  @apply bg-primary;
+  @apply bg-primary text-white;
 }
 
 .footer-wrapper {
-  @apply max-w-8xl mx-auto py-10 ;
+  @apply max-w-8xl mx-auto md:py-10;
 }
 
 .footer_grid {
-  @apply grid grid-cols-1 p-6 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-10;
+  @apply grid grid-cols-1 space-y-2 sm:grid-cols-1 md:gap-10 md:space-y-0 md:grid-cols-4 lg:grid-cols-4 ;
+}
+
+.footer_section{
+  @apply bg-secondary px-3 pt-4 pb-2 md:bg-transparent last:bg-transparent;
 }
 
 .footer_heading {
@@ -16,21 +20,25 @@
 
 .footer_list {
   @apply mt-4 text-lg;
+
+  &_1{
+    @apply text-lg md:mt-4;
+  }
 }
 
 .footer_report_item {
-  @apply mt-10 md:text-sm;
+  @apply md:text-sm;
 }
 
 .footer_report_link {
-  @apply border border-none bg-secondary p-3;
+  @apply border border-none bg-secondary px-3 py-1;
 }
 
 .footer_logo_container {
-  @apply flex justify-center my-4;
+  @apply flex justify-center py-4;
 }
 .footer-bottom{
-  @apply bg-secondary p-6;
+  @apply bg-secondary p-6 text-white;
 }
 
 .footer-bottom-wrapper {
