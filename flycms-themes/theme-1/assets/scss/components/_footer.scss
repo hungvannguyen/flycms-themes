@@ -3,7 +3,7 @@
 }
 
 .footer-wrapper {
-  @apply max-w-8xl mx-auto md:py-10;
+  @apply max-w-8xl mx-auto md:pt-10 md:pb-6;
 }
 
 .footer_grid {
@@ -35,8 +35,13 @@
 }
 
 .footer_logo_container {
-  @apply flex justify-center py-4;
+  @apply flex justify-center pt-6;
 }
+
+.footer_logo{
+    @apply w-[175px] h-[55px] md:w-[250px] md:h-[77px] lg:w-[300px] lg:h-[92px];
+}
+
 .footer-bottom{
   @apply bg-secondary p-6 text-white;
 }
