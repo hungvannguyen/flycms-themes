@@ -3,7 +3,7 @@
 {% set thumbnailFile = model_relation(resource, 'thumbnailFile')%}
 <div class="card-position-left">
 	<div class="card-container-3">
-		<a>
+		<a href="{{link_post(resource)}}">
 			<div class="card-image-4">
 				<img src="{{ image_url( thumbnailFile ) }}">
 			</div>

@@ -24,10 +24,10 @@
     }
 
     &-2{
-      @apply pb-3 mx-2;
+      @apply pb-3;
 
       h2{
-        @apply text-[25px] md:text-[50px] font-bold leading-normal text-primary mb-8;
+        @apply text-[25px] md:text-[50px] font-bold leading-tight text-primary mb-8;
       }
       span{
         @apply leading-loose text-black;

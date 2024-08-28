@@ -1,0 +1,16 @@
+{% set querySection = multikey_filter_post_query()
+.setFilterKeys([tag_data_list[id]['ids']|join(', ')])
+.where('visibility', '=', 'public')
+.setFilterKeyMatchingType('all')
+.sortBy('created_at')
+.setLimit(9)
+.sortDesc()
+%}
+{% set categoriesData = multikey_filter_get_posts(querySection) %}
+{% if categoriesData is not empty %}
+{% set catrs = website_category_find_by_id(tag_data_list[id]['ids']|join(', ')) %}
+
+{% set output = {
+'categoriesData': categoriesData,
+'catrs': catrs,
+} %}

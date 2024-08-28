@@ -1,7 +1,7 @@
 {% if resource %}
 
 {% set thumbnailFile = model_relation(resource, 'thumbnailFile')%}
-
+	<a href="{{link_post(resource)}}">
 	<h3 class="card-heading-1">
 		{{resource.title}}
 	</h3>
@@ -15,5 +15,5 @@
 			</p>
 		</div>
 	</div>
-
+</a>
 {% endif %}
