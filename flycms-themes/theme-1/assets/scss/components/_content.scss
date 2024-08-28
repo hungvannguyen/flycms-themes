@@ -12,7 +12,7 @@
 
   &-heading{
     &-1{
-      @apply border-b border-black pb-3 my-4 mx-6 md:mx-2;
+      @apply border-b border-black pb-3 my-4;
 
       h2, a {
         @apply text-2xl font-bold leading-loose text-primary;
