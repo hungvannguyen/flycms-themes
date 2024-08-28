@@ -1,0 +1,28 @@
+{% set tagIds = tag_data_list[id]['ids']|join(', ') %}
+{% set querySection = multikey_filter_post_query()
+.setFilterKeys([tagIds])
+.where('visibility', '=', 'public')
+.setFilterKeyMatchingType('all')
+.sortBy('created_at')
+.setLimit(9)
+.sortDesc()
+%}
+{% set categoriesData = multikey_filter_get_posts(querySection) %}
+
+{% if categoriesData is not empty %}
+{% set catrs = website_category_find_by_id(tagIds) %}
+<div>
+	<div class="content-heading-1">
+		<a href="{{ link_to(catrs) }}" role="link">
+			<h2>{{ tag_data_list[id]['tag_name'] }}</h2>
+			<h2>All →</h2>
+		</a>
+	</div>
+	<div class="card-section">
+		{% if categoriesData|length > 0 %}
+		{% include 'components/resources_card_1.html' with { resource: categoriesData[0] } %}
+		{% endif %}
+		{% include 'components/list_card_1.html' with { resources: categoriesData } %}
+	</div>
+</div>
+{% endif %}

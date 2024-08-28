@@ -1,0 +1,11 @@
+{% if tag_data_list %}
+
+{% include 'components/section_post_1.html' with { id: 0 } %}
+
+{% include 'components/section_post_2.html' with { resources: listData } %}
+
+<div class="card-section-2">
+	{% include 'components/section_post_3.html' with { ids: [1,2] } %}
+</div>
+
+{% endif %}

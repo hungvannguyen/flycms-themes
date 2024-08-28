@@ -1,9 +1,8 @@
 {% if resources %}
-{% for resource in resources %}
+{% for resource in resources | slice(0,9) %}
 <div class="col-span-1">
 {% include 'components/resources_card_5.html' with { resource: resource } %}
 </div>
 {% endfor %}
 
-{% include 'components/pagination_tailwind.html' with { resource: resources, count: resources | length } %}
 {% endif %}

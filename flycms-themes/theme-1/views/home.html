@@ -4,7 +4,7 @@
 <!-- Banner -->
 <section class="banner">
 	<div class="banner_container">
-		<img src="{{ link_asset('images/banner/banner.jpeg') }}" alt="Banner Image" class="banner_image" />
+		<img src="{{ link_asset('images/banner/banner.jpg') }}" alt="Banner Image" class="banner_image" />
 		<div class="banner_overlay">
 			<div class="banner_text_container">
 				<span class="banner_title">World Blood Donor Day</span>
@@ -23,134 +23,17 @@
 	{% set data = website.getMetaValue('home-sections') %}
 	{% set tags = data|split(',') %}
 	{% set tag_data_list = [] %}
+	{% set previous_tag_name = '' %}
 
 	{% for tag in tags %}
 	{% set parts = tag|split(':') %}
-	{% if parts|length > 1 %}
-	{% set tag_name = parts[0]|trim %}
-	{% set ids = parts[1]|trim|split(' ') %}
+	{% set tag_name = (parts|length > 1) ? parts[0]|trim : previous_tag_name %}
+	{% set ids = parts[parts|length > 1 ? 1 : 0]|trim|split(' ') %}
 	{% set previous_tag_name = tag_name %}
-	{% else %}
-	{% set tag_name = previous_tag_name %}
-	{% set ids = parts[0]|trim|split(' ') %}
-	{% endif %}
-
-	{% set tag_object = {
-	'tag_name': tag_name,
-	'ids': ids
-	} %}
-
-	{% set tag_data_list = tag_data_list|merge([tag_object]) %}
+	{% set tag_data_list = tag_data_list|merge([{'tag_name': tag_name, 'ids': ids}]) %}
 	{% endfor %}
 
-		{%
-		set querySection1 = multikey_filter_post_query()
-		.setFilterKeys([tag_data_list[0]['ids']|join(', ')])
-		.where('visibility', '=', 'public')
-		.setFilterKeyMatchingType('all')
-		.sortBy('created_at')
-		.setLimit(9)
-		.sortDesc()
-		%}
-		{% set categoriesData1 = multikey_filter_get_posts(querySection1) %}
-		{% if categoriesData1 is not empty %}
-		{% set catrs = website_category_find_by_id(tag_data_list[0]['ids']|join(', ')) %}
-		<div>
-			<div class="content-heading-1">
-				<a href="{{link_to(catrs)}}" role="link">
-				<h2>
-					{{tag_data_list[0]['tag_name']}}
-				</h2>
-				<h2>All →</h2>
-				</a>
-			</div>
-			<div class="card-section">
-
-				{% for data in categoriesData1|slice(0,1) %}
-				{% include 'components/resources_card_1.html' with { resource: data } %}
-				{% endfor %}
-
-				{% include 'components/list_card_1.html' with { resources: categoriesData1} %}
-
-			</div>
-		</div>
-		{% endif %}
-
-	{%
-		set querySection2 = multikey_filter_post_query()
-		.setFilterKeys([tag_data_list[1]['ids']|join(', ')])
-		.where('visibility', '=', 'public')
-		.setFilterKeyMatchingType('all')
-		.sortBy('created_at')
-		.setLimit(6)
-		.sortDesc()
-		%}
-
-		{% set categoriesData2 = multikey_filter_get_posts(querySection2) %}
-		{% if categoriesData2 is not empty %}
-		{% set catrs = website_category_find_by_id(tag_data_list[1]['ids']|join(', ')) %}
-		<div>
-			<div class="content-heading-1">
-				<a href="{{link_to(catrs)}}" role="link">
-					<h2>
-						{{tag_data_list[1]['tag_name']}}
-					</h2>
-<!-- 					<h2>All →</h2> -->
-				</a>
-			</div>
-
-			<div class="card-section-1">
-				{% include 'components/list_card_2.html' with { resources: categoriesData2} %}
-			</div>
-		</div>
-		{% endif %}
-
-		{%
-		set querySection3 = multikey_filter_post_query()
-		.setFilterKeys([tag_data_list[2]['ids']|join(', ')])
-		.where('visibility', '=', 'public')
-		.setFilterKeyMatchingType('all')
-		.sortBy('created_at')
-		.setLimit(9)
-		.sortDesc()
-		%}
-
-		{% set categoriesData3 = multikey_filter_get_posts(querySection3) %}
-		{% if categoriesData3 is not empty %}
-
-		<div class="card-section-2">
-			<div>
-				<div class="content-heading-3">
-					<a href="{{link_to(catrs)}}" role="link">
-						<h2>
-							{{tag_data_list[2]['tag_name']}}
-						</h2>
-<!-- 						<h2>All →</h2> -->
-					</a>
-				</div>
-
-				<div class="card-item">
-				{% for data in categoriesData3|slice(0,2) %}
-				{% include 'components/resources_card_6.html' with { resource: data } %}
-				{% endfor %}
-				</div>
-			</div>
-
-			<div>
-				<div class="content-heading-3">
-					<a href="{{link_to(catrs)}}" role="link">
-						<h2>
-							{{tag_data_list[2]['tag_name']}}
-						</h2>
-<!-- 						<h2>All →</h2> -->
-					</a>
-				</div>
-
-				{% include 'components/list_card_3.html' with { resources: categoriesData3} %}
-
-			</div>
-		</div>
-		{% endif %}
+	{% include 'components/section_list_post.html' with { tag_data_list: tag_data_list, listData: post_list(), count: listData.getResourcesCount()} %}
 
 </section>
 <!-- End Main Content -->

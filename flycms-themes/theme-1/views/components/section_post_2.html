@@ -1,0 +1,14 @@
+<div>
+	<div class="content-heading-1">
+		<a href="{{link_to(catrs)}}" role="link">
+			<h2>
+				Lasted Posts
+			</h2>
+			<!-- 					<h2>All →</h2> -->
+		</a>
+	</div>
+
+	<div class="card-section-1">
+		{% include 'components/list_card_2.html' with { resources: listData} %}
+	</div>
+</div>

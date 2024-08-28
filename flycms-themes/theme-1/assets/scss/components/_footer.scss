@@ -1,59 +1,61 @@
-.footer-container{
-  @apply bg-primary text-white;
-}
-
-.footer-wrapper {
-  @apply max-w-8xl mx-auto md:pt-10 md:pb-6;
-}
-
-.footer_grid {
-  @apply grid grid-cols-1 space-y-2 sm:grid-cols-1 md:gap-10 md:space-y-0 md:grid-cols-4 lg:grid-cols-4 ;
-}
-
-.footer_section{
-  @apply bg-secondary px-3 pt-4 pb-2 md:bg-transparent last:bg-transparent;
-}
-
-.footer_heading {
-  @apply text-2xl font-bold;
-}
-
-.footer_list {
-  @apply mt-4 text-lg;
-
-  &_1{
-    @apply text-lg md:mt-4;
+.footer {
+  &-container {
+    @apply bg-primary text-white;
   }
-}
 
-.footer_report_item {
-  @apply md:text-sm;
-}
+  &-wrapper {
+    @apply max-w-8xl mx-auto md:pt-10 md:pb-6;
+  }
 
-.footer_report_link {
-  @apply border border-none bg-secondary px-3 py-1;
-}
+  &-grid {
+    @apply grid grid-cols-1 space-y-2 sm:grid-cols-1 md:gap-10 md:space-y-0 md:grid-cols-4 lg:grid-cols-4;
+  }
 
-.footer_logo_container {
-  @apply flex justify-center pt-6;
-}
+  &-section {
+    @apply bg-secondary px-3 pt-4 pb-2 md:bg-transparent last:bg-transparent;
+  }
 
-.footer_logo{
+  &-heading {
+    @apply text-2xl font-bold;
+  }
+
+  &-list {
+    @apply mt-4 text-lg;
+
+    &-1 {
+      @apply text-lg md:mt-4;
+    }
+  }
+
+  &-report-item {
+    @apply md:text-sm;
+  }
+
+  &-report-link {
+    @apply border border-none bg-secondary px-3 py-1;
+  }
+
+  &-logo-container {
+    @apply flex justify-center pt-6;
+  }
+
+  &-logo {
     @apply w-[175px] h-[55px] md:w-[250px] md:h-[77px] lg:w-[300px] lg:h-[92px];
-}
+  }
 
-.footer-bottom{
-  @apply bg-secondary p-6 text-white;
-}
+  &-bottom {
+    @apply bg-secondary p-6 text-white;
+  }
 
-.footer-bottom-wrapper {
-  @apply flex flex-col justify-between content-center space-y-4 md:flex-row text-center text-sm;
-}
+  &-bottom-wrapper {
+    @apply flex flex-col justify-between content-center space-y-4 md:flex-row text-center text-sm;
+  }
 
-.footer_privacy_policy {
-  @apply text-xl font-bold my-auto;
-}
+  &-privacy-policy {
+    @apply text-xl font-bold my-auto;
+  }
 
-.footer_social_links {
-  @apply flex justify-center gap-6;
+  &-social-links {
+    @apply flex justify-center gap-6;
+  }
 }

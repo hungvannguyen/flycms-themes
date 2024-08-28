@@ -1,9 +1,7 @@
 body {
-  @apply relative px-2 md:px-0 text-black
-}
+  @apply relative px-2 md:px-0 text-black;
 
-body {
-  font-family: Noto Sans Bengali, sans-serif;
+  font-family: Noto Sans Bengali, sans-serif
 }
 
 input {

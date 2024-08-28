@@ -6,19 +6,13 @@
 
 <!-- Main Content -->
 <section class="content-section-2">
-	<div class="content-heading-2">
-		<h2>
-	{{websiteCategory.title}}
-		</h2>
-		<span>
-			Find {{postsCount}} results
-		</span>
-	</div>
-	{% set resources = posts %}
+
+	{% include 'components/content_heading.html' with {title: websiteCategory.title, count: postsCount } %}
+
 	{% set count = listData.getResourcesCount() %}
 	<div class="card-section-4">
 		{% if postsCount > 0 %}
-		{% include 'components/list_card_4.html' with { resources: resources, count: count } %}
+		{% include 'components/list_card_4.html' with { resources: posts, count: count } %}
 		{% else %}
 		<div class="flex justify-center my-10 col-span-3">
 			<h1 class="text-2xl font-medium text-primary">No result found</h1>
