@@ -13,6 +13,10 @@
 
   &-icon {
     @apply w-6 h-6;
+
+    &-container {
+      @apply flex justify-center my-auto text-primary;
+    }
   }
 
   &-input {

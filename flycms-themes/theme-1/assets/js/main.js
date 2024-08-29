@@ -101,7 +101,7 @@ if (toTopButton) {
         });
     };
 }
-async function fetchPosts(endpoint, page = 1, limit = 16, ajax = 1) {
+async function fetchPosts(endpoint, page = 1, limit = 9, ajax = 1) {
     try {
         const url = window.location.origin + endpoint + (endpoint.includes('?') ? '&' : '?') + 'page=' + page + '&limit=' + limit + '&ajax=' + ajax;
         console.log(url);

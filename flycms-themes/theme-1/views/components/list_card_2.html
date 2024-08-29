@@ -1,8 +1,62 @@
-{% if resources %}
-{% for resource in resources | slice(0,9) %}
-<div class="col-span-1">
-{% include 'components/resources_card_5.html' with { resource: resource } %}
-</div>
-{% endfor %}
+<script type="module">
+    import { fetchPosts } from "{{ link_asset('js/main.js') }}?t={{ time() }}";
 
-{% endif %}
+    (async () => {
+        const endpoint = '';
+        let page = 1;
+        const limit = 9;
+        const ajax = 1;
+
+        async function loadPosts() {
+            const response = await fetchPosts(endpoint, page, limit, ajax);
+								const posts = response.data;
+                const container = document.getElementById('lastedPosts');
+            		container.innerHTML = '';
+                    if (posts.length) {
+                posts.forEach(post => {
+                    const postElement = `
+											<div class="col-span-1">
+                        <a href="${post.url}">
+                            <h3 class="card-heading-1">
+                                ${post.title}
+                            </h3>
+                            <div class="card-container-4 pb-6">
+                                <div class="card-image-1">
+                                    <img src="${post.thumbnail_file_url}" alt="${post.title}">
+                                </div>
+                                <div class="card-info-2">
+                                    <p class="card-heading">
+                                        <a href="${post.url}">Learn more</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    `;
+                    container.innerHTML += postElement;
+                });
+                    } else {
+												container.innerHTML = '<p></p>' +
+														'<p class="text-center">No posts found</p>' +
+														'<p></p>';
+										}
+        }
+
+        await loadPosts();
+
+        document.getElementById('nextPageBtn').addEventListener('click', (event) => {
+            event.preventDefault();
+            page++;
+            loadPosts();
+        });
+
+        document.getElementById('prevPageBtn').addEventListener('click', (event) => {
+            event.preventDefault();
+            if (page > 1) {
+                page--;
+                loadPosts();
+            }
+        });
+
+    })();
+</script>
