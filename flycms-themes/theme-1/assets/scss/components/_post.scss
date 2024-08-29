@@ -41,11 +41,10 @@
   }
 
   &-thumbnail {
-    @apply max-w-fit max-h-[735px] object-cover overflow-hidden mb-4 lg:mb-8 xl:mb-10;
+    @apply flex justify-items-center mx-auto max-w-fit max-h-[735px] overflow-hidden mb-4 lg:mb-8 xl:mb-10 ;
 
     image{
-        @apply w-full h-full object-cover shrink-0;
-
+        @apply w-full h-full object-cover shrink-0 mx-auto;
     }
   }
 }
