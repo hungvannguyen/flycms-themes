@@ -28,7 +28,7 @@
             }
 
             if (nextPageBtn) {
-                if (posts.length < limit) {
+                if (posts < limit || posts === 0) {
                     nextPageBtn.classList.add('disabled');
                 } else {
                     nextPageBtn.classList.remove('disabled');
