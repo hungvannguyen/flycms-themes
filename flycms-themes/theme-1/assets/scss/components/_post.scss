@@ -41,7 +41,7 @@
   }
 
   &-thumbnail {
-    @apply w-full max-h-[435px] object-cover overflow-hidden;
+    @apply w-full max-h-[435px] object-cover overflow-hidden mb-4 lg:mb-8 xl:mb-10;
 
     image{
         @apply w-full h-full object-cover shrink-0;
