@@ -13,7 +13,6 @@
 	</div>
 
 	<div class="post-container">
-
 		<div class="post-left">
 			<div class="post-information">
 			<span>{{ post.created_at | date("j F Y") }} </span>
@@ -23,14 +22,15 @@
 				{% endfor %}
 			<span>| View: {{post.views}}</span>
 			</div>
+
 			<div class="post-left-content">
-				{% for content in model_relation(post, 'contents') %}
 				{% set thumbnailFile = model_relation(post, 'thumbnailFile') %}
 				{% if thumbnailFile %}
 				<div class="post-thumbnail">
 					<img src="{{ image_url(thumbnailFile) }}" alt="{{ post.title }}">
 				</div>
 				{% endif %}
+				{% for content in model_relation(post, 'contents') %}
 				<p>
 					{{content.content | raw}}
 				</p>

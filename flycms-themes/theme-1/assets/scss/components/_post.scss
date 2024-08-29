@@ -1,6 +1,6 @@
 .post{
   &-container{
-    @apply grid grid-cols-1 space-y-4 xl:space-y-0 xl:grid-cols-3 xl:gap-20;
+    @apply grid grid-cols-1 space-y-4 xl:space-y-0 xl:gap-20;
   }
 
   &-left{
@@ -25,7 +25,7 @@
   }
 
   &-right{
-    @apply flex flex-col space-y-6 sm:space-y-2 md:space-y-0 md:gap-2 md:flex-row md:justify-between xl:space-y-12 xl:flex-col xl:justify-normal;
+    @apply flex flex-col space-y-6 sm:space-y-2 md:space-y-0 md:gap-2 md:flex-row md:justify-between;
   }
 
   &-information{
@@ -41,7 +41,7 @@
   }
 
   &-thumbnail {
-    @apply w-full max-h-[435px] object-cover overflow-hidden mb-4 lg:mb-8 xl:mb-10;
+    @apply max-w-fit max-h-[735px] object-cover overflow-hidden mb-4 lg:mb-8 xl:mb-10;
 
     image{
         @apply w-full h-full object-cover shrink-0;
