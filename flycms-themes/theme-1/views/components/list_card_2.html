@@ -6,40 +6,78 @@
         let page = 1;
         const limit = 9;
         const ajax = 1;
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        function showLoading() {
+            loadingIndicator.style.display = 'block';
+        }
+
+        function hideLoading() {
+            loadingIndicator.style.display = 'none';
+        }
+
+        function togglePageButtons(posts) {
+            const prevPageBtn = document.getElementById('prevPageBtn');
+            const nextPageBtn = document.getElementById('nextPageBtn');
+
+            if (prevPageBtn) {
+                if (page <= 1) {
+                    prevPageBtn.classList.add('disabled');
+                } else {
+                    prevPageBtn.classList.remove('disabled');
+                }
+            }
+
+            if (nextPageBtn) {
+                if (posts.length < limit) {
+                    nextPageBtn.classList.add('disabled');
+                } else {
+                    nextPageBtn.classList.remove('disabled');
+                }
+            }
+        }
 
         async function loadPosts() {
-            const response = await fetchPosts(endpoint, page, limit, ajax);
-								const posts = response.data;
+            showLoading();
+            try {
+                const response = await fetchPosts(endpoint, page, limit, ajax);
+                const posts = response.data;
                 const container = document.getElementById('lastedPosts');
-            		container.innerHTML = '';
-                    if (posts.length) {
-                posts.forEach(post => {
-                    const postElement = `
-											<div class="col-span-1">
-                        <a href="${post.url}">
-                            <h3 class="card-heading-1">
-                                ${post.title}
-                            </h3>
-                            <div class="card-container-4 pb-6">
-                                <div class="card-image-1">
-                                    <img src="${post.thumbnail_file_url}" alt="${post.title}">
-                                </div>
-                                <div class="card-info-2">
-                                    <p class="card-heading">
-                                        <a href="${post.url}">Learn more</a>
-                                    </p>
-                                </div>
+                container.innerHTML = '';
+                togglePageButtons(posts.length);
+                if (posts.length) {
+                    posts.forEach(post => {
+                        const postElement = `
+                            <div class="col-span-1">
+                                <a href="${post.url}">
+                                    <h3 class="card-heading-1">
+                                        ${post.title}
+                                    </h3>
+                                    <div class="card-container-4 pb-6">
+                                        <div class="card-image-1">
+                                            <img src="${post.thumbnail_file_url}" alt="${post.title}">
+                                        </div>
+                                        <div class="card-info-2">
+                                            <p class="card-heading">
+                                                <a href="${post.url}">Learn more</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                        </div>
-                    `;
-                    container.innerHTML += postElement;
-                });
-                    } else {
-												container.innerHTML = '<p></p>' +
-														'<p class="text-center">No posts found</p>' +
-														'<p></p>';
-										}
+                        `;
+                        container.innerHTML += postElement;
+                    });
+                } else {
+                    container.innerHTML = '<p></p>' +
+                        '<p class="text-center">No posts found</p>' +
+                        '<p></p>';
+
+                }
+            } catch (error) {
+                console.error('Error loading posts:', error);
+            } finally {
+                hideLoading();
+            }
         }
 
         await loadPosts();
@@ -48,6 +86,7 @@
             event.preventDefault();
             page++;
             loadPosts();
+
         });
 
         document.getElementById('prevPageBtn').addEventListener('click', (event) => {

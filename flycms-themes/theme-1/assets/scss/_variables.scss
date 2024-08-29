@@ -33,3 +33,9 @@
 .right-128 {
   right: 32rem;
 }
+
+.disabled{
+    pointer-events: none !important;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
