@@ -1,13 +1,13 @@
 .post{
   &-container{
-    @apply grid grid-cols-1 space-y-4 xl:space-y-2 xl:grid-cols-3 xl:gap-8;
+    @apply grid grid-cols-1 space-y-4 xl:space-y-0 xl:grid-cols-3 xl:gap-20;
   }
 
   &-left{
     @apply col-span-2 text-black;
 
     &-content{
-      @apply border-t border-black mt-6 pt-8 space-y-3;
+      @apply border-t border-black mt-6 pt-4 space-y-3;
 
         h1{
             @apply text-2xl font-bold;
@@ -39,7 +39,18 @@
   &-tag{
     @apply shrink-0 text-sm bg-quaternary px-2 pt-1 rounded-md text-primary hover:bg-primary hover:text-quaternary hover:ease-in-out;
   }
+
+  &-thumbnail {
+    @apply w-full max-h-[435px] object-cover overflow-hidden;
+
+    image{
+        @apply w-full h-full object-cover shrink-0;
+
+    }
+  }
 }
+
+
 
 .media{
   &-contacts-container{
