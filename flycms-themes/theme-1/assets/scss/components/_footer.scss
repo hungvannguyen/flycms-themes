@@ -27,29 +27,34 @@
     }
   }
 
-  &-report-item {
-    @apply md:text-sm;
-  }
+  &-report{
 
-  &-report-link {
-    @apply border border-none bg-secondary px-3 py-1;
-  }
+    &-item {
+      @apply md:text-sm;
+    }
 
-  &-logo-container {
-    @apply flex justify-center pt-6;
+    &-link {
+       @apply border border-none bg-secondary px-3 py-1;
+     }
   }
 
   &-logo {
     @apply w-[175px] h-[55px] md:w-[250px] md:h-[77px] lg:w-[300px] lg:h-[92px];
+
+    &-container {
+      @apply flex justify-center pt-6;
+    }
   }
 
   &-bottom {
     @apply bg-secondary p-6 text-white;
+
+    &-wrapper {
+      @apply flex flex-col justify-between content-center space-y-4 md:flex-row text-center text-sm;
+    }
   }
 
-  &-bottom-wrapper {
-    @apply flex flex-col justify-between content-center space-y-4 md:flex-row text-center text-sm;
-  }
+
 
   &-privacy-policy {
     @apply text-xl font-bold my-auto;

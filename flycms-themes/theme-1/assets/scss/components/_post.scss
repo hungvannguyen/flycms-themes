@@ -1,6 +1,6 @@
 .post{
   &-container{
-    @apply grid grid-cols-1 space-y-4 xl:space-y-0 xl:gap-20;
+    @apply grid grid-cols-1 space-y-4 lg:grid-cols-3 xl:space-y-0 xl:gap-20;
   }
 
   &-left{
@@ -25,7 +25,7 @@
   }
 
   &-right{
-    @apply flex flex-col space-y-6 sm:space-y-2 md:space-y-0 md:gap-2 md:flex-row md:justify-between;
+    @apply flex flex-col space-y-6 sm:space-y-2 md:space-y-0 md:gap-2 md:flex-row md:justify-between lg:space-y-6 lg:flex-col lg:justify-normal;
   }
 
   &-information{
@@ -48,8 +48,6 @@
     }
   }
 }
-
-
 
 .media{
   &-contacts-container{
